@@ -1,0 +1,25 @@
+# Visual Studio artifacts
+.vs/
+x64/
+Debug/
+Release/
+*.obj
+*.ilk
+*.pdb
+*.tlog
+*.lastbuildstate
+*.vcxproj.user
+
+# Simulator & Cocotb build artifacts
+cocotb/sim_build/
+*.vvp
+*.vcd
+__pycache__/
+*.py[cod]
+parsetab.py
+parser.out
+results.xml
+
+# Explicitly keep deliverables
+!results/*.log
+!screenshots/*.png

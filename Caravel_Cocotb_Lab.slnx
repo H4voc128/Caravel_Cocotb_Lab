@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Caravel_Cocotb_Lab/Caravel_Cocotb_Lab.vcxproj" Id="494ea829-07e5-4b2c-8ecf-8ce3a2a1b388" />
+</Solution>
