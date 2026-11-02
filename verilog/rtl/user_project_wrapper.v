@@ -24,12 +24,16 @@ module user_project_wrapper (
     input  wire        user_clock2
 );
 
-    assign wbs_ack_o   = 1'b0;
-    assign wbs_dat_o   = 32'h00000000;
-    assign la_data_out = 128'h0;
-    assign io_oeb      = 38'h0;
+    initial begin
+        $dumpfile("caravel_regression.vcd");
+        $dumpvars(0, user_project_wrapper);
+    end
 
-    // Route sync handshake pin 37 from firmware/LA to output
+    assign wbs_ack_o     = 1'b0;
+    assign wbs_dat_o     = 32'h00000000;
+    assign la_data_out   = 128'h0;
+    assign io_oeb        = 38'h0;
+
     assign io_out[37]    = la_data_in[37];
     assign io_out[36:32] = 5'b0;
 
