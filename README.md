@@ -7,7 +7,7 @@ The flow uses a dual-driver / passive-monitor architecture:
 * **Firmware Stimulus Driver**: Simulates in-system firmware execution and coordinates synchronization pulses via GPIO handshake pins.
 * **cocotb Monitor & Checker**: An event-driven Python testbench running coroutines to sample output pins and assert equality against an independent mathematical reference model.
 
-```bash
+```text
        +-------------------------------------------------------+
        |             Caravel user_project_wrapper              |
        |                                                       |
@@ -66,7 +66,7 @@ To verify that the testbench detects hardware faults:
    Execution halted immediately, confirming that errors cannot pass silently.
 ## 6. Analysis Questions
 * **Q1: What is the role of the Caravel Management Processor?**
-```bash
+```text
 Answer:
 
 A Caravel Management Processor acts as the in-system host master and stimulus driver. 
@@ -75,7 +75,7 @@ drives transaction stimuli to the student RTL via Wishbone or Logic Analyzer int
 ```
 
 * **Q2: Why is synchronization required?**
-```bash
+```text
 Answer:
 
 Firmware executes inside the simulated core, while cocotb runs asynchronously in simulation time. 
@@ -84,7 +84,7 @@ outputs are stable before assertion checks occur.
 ```
 
 * **Q3: What are the advantages of a self-checking testbench?**
-```bash
+```text
 Answer:
 
 It enables automated continuous integration regressions, scales across thousands of test cycles 
@@ -92,7 +92,7 @@ without manual waveform scanning, and eliminates human error during boundary eva
 ```
 
 * **Q4: Compare: Stimulus vs. Monitoring vs. Checking**
-```bash
+```text
 Answer:
 
 - Stimulus: Active generation of control and input vectors to the DUT.
@@ -103,7 +103,7 @@ Answer:
 ```
 
 * **Q5: Why must expected vectors remain independent of firmware?**
-```bash
+```text
 Answer:
 
 Coupling expected outputs directly to firmware introduces common-mode verification errors. 
@@ -112,7 +112,7 @@ Independent reference models guarantee the actual specification is enforced.
 ```
 
 * **Q6: What are the consequences of changing firmware inputs before sampling?**
-```bash
+```text
 Answer:
 
 The DUT state transitions prematurely, causing cocotb to sample stale or invalid intermediate 
@@ -120,7 +120,7 @@ values, resulting in false-positive assertion failures.
 ```
 
 * **Q7: Architecture Adjustments for Bus Protocols (APB, AXI, SPI, UART)?**
-```bash
+```text
 Answer:
 
 Requires transitioning to a Transaction-Level Modeling (TLM) architecture: utilizing Bus 
@@ -129,7 +129,7 @@ into queues, and scoreboards to compare transaction structures.
 ```
 
 * **Q8: What are some challenges when moving from RTL to gate-level simulation (GLS)?**
-```bash
+```text
 Answer:
 
 - Standard cell delays and timing annotations (SDF) expose setup/hold violations.
