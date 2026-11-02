@@ -1,4 +1,4 @@
-# Visual Studio artifacts
+# Visual Studio / C++ artifacts
 .vs/
 x64/
 Debug/
@@ -10,16 +10,15 @@ Release/
 *.lastbuildstate
 *.vcxproj.user
 
-# Simulator & Cocotb build artifacts
+# Cocotb / Simulator builds
 cocotb/sim_build/
 *.vvp
-*.vcd
 __pycache__/
 *.py[cod]
 parsetab.py
 parser.out
-results.xml
 
-# Explicitly keep deliverables
-!results/*.log
-!screenshots/*.png
+# Track required outputs, logs, waveforms, screenshots
+!results/*
+!screenshots/*
+!waveforms/*
